@@ -6,8 +6,6 @@ import React, { useEffect, useState } from 'react'
 const Home = () => {
   const [sessionToken, setSessionToken] = useState("");
   const [categories, setCategories] = useState([]);
-  const [userCategory, setUserCategory] = useState(0);
-  const [diffuculty, setDifficulty] = useState("")
   const fetchSessionToken = async () => {
     const res = await fetch("https://opentdb.com/api_token.php?command=request");
     const data = await res.json();  
@@ -36,8 +34,8 @@ const Home = () => {
         {categories.length > 0 && 
         <div className='grid lg:grid-cols-3 xl:grid-cols-4 xl:gap-2 mt-8'>
           {categories.map((cat)=> (
-            <Link href={`/category/${slugify(cat.name)}`} key={cat.id}>
-              <TriviaCard category={cat.name} onClick={() => setUserCategory(cat.id)}/>
+            <Link href={`/category/${cat.id}`} key={cat.id}>
+              <TriviaCard category={cat.name} categoryId={cat.id}/>
             </Link>
           ))}
         </div>

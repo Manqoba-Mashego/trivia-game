@@ -18,4 +18,14 @@ const Page = () => {
   )
 }
 
+// // consume 
+
+// import { useSelectedCategory } from "@/store/useSelectedCategory";
+
+// export default function DeepComponent() {
+//   const selectedCategory = useSelectedCategory((state) => state.selectedCategory);
+
+//   return <div>Selected: {selectedCategory?.name}</div>;
+// }
+
 export default Page
