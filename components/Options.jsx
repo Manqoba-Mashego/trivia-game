@@ -3,7 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import he from "he";
 
-const Options = ({correctAnswer, incorrectAnswers, setCompleted, completed}) => {
+const Options = ({correctAnswer, incorrectAnswers, setCompleted, completed, onCorrect}) => {
     const [answers, setAnswers] = useState([]);
     const [selected, setSelected] = useState(null);
     const [locked, setLocked] = useState(false);
@@ -33,6 +33,9 @@ const Options = ({correctAnswer, incorrectAnswers, setCompleted, completed}) => 
         setSelected(answer);
         setLocked(true);
         setCompleted(!completed);
+        if (answer === he.decode(correctAnswer)) {
+          onCorrect(); 
+        }
     }
 
     const getClass = (answer) => {
@@ -51,7 +54,7 @@ const Options = ({correctAnswer, incorrectAnswers, setCompleted, completed}) => 
      if (answers.length < 4) return null;
      
       return (
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 text-lg">
           {answers.map((ans, i) => (
             <li
               key={i}
