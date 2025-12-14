@@ -1,47 +1,111 @@
-"use client";
-import TriviaCard from '@/components/TriviaCard';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import Categories from '@/components/Categories';
+// import React, { useEffect, useState } from 'react'
 
-const Home = () => {
-  const [sessionToken, setSessionToken] = useState("");
-  const [categories, setCategories] = useState([]);
-  const fetchSessionToken = async () => {
-    const res = await fetch("https://opentdb.com/api_token.php?command=request");
-    const data = await res.json();  
-    console.log("Session Token: ", data);
-  }
+const Home = async () => {
+  // const res = await fetch("https://opentdb.com/api_category.php");
+  // const data = await res.json();
 
-  const fetchCategories = async () => {
-    const res = await fetch("https://opentdb.com/api_category.php");
-    const data = await res.json();
-    console.log("Categories", data.trivia_categories);
-    setCategories(data.trivia_categories);
-  }
+  const dummyCategories = [
+      {
+          name: "Ecchi",
+          id: 1,
+      },
+      {
+          name: "Harem",
+          id: 2,
+      },
+      {
+          name: "Isekai",
+          id: 3,
+      },
+      {
+          name: "Entertainment: Celebrities and Artists",
+          id: 4,
+      },
+      {
+          name: "Entertainment: Mathematics",
+          id: 5,
+      },
+      {
+          name: "Shounen",
+          id: 6,
+      },
+      {
+          name: "Ecchi",
+          id: 7,
+      },
+      {
+          name: "Harem",
+          id: 8,
+      },
+      {
+          name: "Isekai",
+          id: 9,
+      },
+      {
+          name: "Entertainment: Celebrities and Artists",
+          id: 10,
+      },
+      {
+          name: "Entertainment: Mathematics",
+          id: 11,
+      },
+      {
+          name: "Shounen",
+          id: 12,
+      },
+      {
+          name: "Ecchi",
+          id: 13,
+      },
+      {
+          name: "Harem",
+          id: 14,
+      },
+      {
+          name: "Isekai",
+          id: 15,
+      },
+      {
+          name: "Entertainment: Celebrities and Artists",
+          id: 16,
+      },
+      {
+          name: "Entertainment: Mathematics",
+          id: 17,
+      },
+      {
+          name: "Shounen",
+          id: 18,
+      },
+      {
+          name: "Ecchi",
+          id: 19,
+      },
+      {
+          name: "Harem",
+          id: 20,
+      },
+      {
+          name: "Isekai",
+          id: 21,
+      },
+      {
+          name: "Entertainment: Celebrities and Artists",
+          id: 22,
+      },
+      {
+          name: "Entertainment: Mathematics",
+          id: 23,
+      },
+      {
+          name: "Shounen",
+          id: 24,
+      }
+  ];
 
-  const slugify = (str) => str.replace(/&/g, "and").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-
-
-  useEffect(()=>{
-    // fetchSessionToken();
-    fetchCategories();
-  }, [])
-
-  return (
-    <div className='w-[80%] mx-auto text-center'>
-      <h1 className=' mt-15 text-4xl font-semibold'>Choose a category</h1>
-      {/* category cards */}
-        {categories.length > 0 && 
-        <div className='grid lg:grid-cols-3 xl:grid-cols-4 xl:gap-2 mt-8'>
-          {categories.map((cat)=> (
-            <Link href={`/category/${cat.id}`} key={cat.id}>
-              <TriviaCard category={cat.name} categoryId={cat.id}/>
-            </Link>
-          ))}
-        </div>
-        }
-    </div>
-  )
+  // return <Categories categories={data.trivia_categories} />;
+  return <Categories categories={dummyCategories} />;
 }
 
 export default Home

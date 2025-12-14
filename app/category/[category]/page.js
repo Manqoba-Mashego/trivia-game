@@ -5,10 +5,9 @@ import React from 'react'
 
 const Page = () => {
     const params = useParams();
-    console.log(params.category);
   return (
     <div className='w-[80%] mx-auto text-center'>
-        <h1 className=' mt-15 text-4xl font-semibold'>Choose a category</h1>
+        <h1 className=' mt-15 text-4xl font-semibold'>Choose the diffulty</h1>
         <div className='flex justify-center gap-5 mt-8 '>
             <DiffultyCard diffulty={"Easy"} category={params.category}/>
             <DiffultyCard diffulty={"Medium"} category={params.category}/>
@@ -17,15 +16,5 @@ const Page = () => {
     </div>
   )
 }
-
-// // consume 
-
-// import { useSelectedCategory } from "@/store/useSelectedCategory";
-
-// export default function DeepComponent() {
-//   const selectedCategory = useSelectedCategory((state) => state.selectedCategory);
-
-//   return <div>Selected: {selectedCategory?.name}</div>;
-// }
 
 export default Page

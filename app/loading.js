@@ -6,18 +6,19 @@ import React from 'react';
 const Loading = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-white">
-      <div className="relative group">
+      <div className="relative group text-center">
         <video
           src="/loading.mp4"
           autoPlay
           loop
           muted
           playsInline
-          className="w-32 h-32"
+          className="w-50 h-50"
         />
+        <p className='text-lg mt-2'>Loading...</p>
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
                         bg-gray-800 text-white text-xs rounded px-2 py-1 
-                        whitespace-nowrap opacity-0 group-hover:opacity-100 
+                        whitespace-nowrap opacity-0 group-hover:opacity-20 
                         transition-all duration-200 pointer-events-none">
           <a
             href="https://iconscout.com/lottie-animations/loading"
